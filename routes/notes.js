@@ -21,14 +21,14 @@ module.exports = (db) => {
     if (!content) return res.redirect('/notes');
 
     db.run('INSERT INTO notes (user_id, content) VALUES (?, ?)', [req.session.user.id, content], err => {
-      res.redirect('/notes');
+      res.redirect('/');
     });
   });
 
   router.post('/notes/delete/:id', requireLogin, (req, res) => {
     const noteId = req.params.id;
     db.run('DELETE FROM notes WHERE id = ? AND user_id = ?', [noteId, req.session.user.id], err => {
-      res.redirect('/notes');
+      res.redirect('/');
     });
   });
 
