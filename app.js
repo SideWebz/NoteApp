@@ -19,6 +19,7 @@ db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS notes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
+    title TEXT,
     content TEXT,
     FOREIGN KEY(user_id) REFERENCES users(id)
   )`);
