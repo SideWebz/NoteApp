@@ -1,0 +1,15 @@
+<h2>Register</h2>
+{{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+<form method="post" action="/register" class="mb-3">
+  <div class="mb-3">
+    <label for="username" class="form-label">Gebruikersnaam</label>
+    <input id="username" name="username" type="text" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Wachtwoord</label>
+    <input id="password" name="password" type="password" class="form-control" required />
+  </div>
+  <button type="submit" class="btn btn-primary">Registreren</button>
+</form>

@@ -1,0 +1,23 @@
+<h2>Jouw Notities</h2>
+
+<form method="post" action="/notes" class="mb-4">
+  <div class="mb-3">
+    <textarea name="content" rows="3" class="form-control" placeholder="Nieuwe notitie..." required></textarea>
+  </div>
+  <button type="submit" class="btn btn-success">Toevoegen</button>
+</form>
+
+<ul class="list-group">
+  {{#each notes}}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>{{content}}</div>
+      <form method="post" action="/notes/delete/{{id}}" onsubmit="return confirm('Weet je het zeker?');">
+        <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+
+{{#unless notes.length}}
+  <p class="text-muted">Je hebt nog geen notities.</p>
+{{/unless}}
